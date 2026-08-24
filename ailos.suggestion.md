@@ -1,3 +1,7 @@
+
+two "structured query functions".
+time(*), context(*)
+
 ### algorithmic
 do(vSet'("home last week")){
 
