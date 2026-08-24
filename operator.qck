@@ -62,6 +62,31 @@ do(vSet'("home last week")) {
 
 ## structured query
 
+### replay scope
+
+`context(*)` and `time(*)` are ordered structured-query functions.
+
+```text
+context(*) = scope one person or stream plus its BitMemory field
+time(*)    = cut the scoped event stream at a replay boundary
+
+context(*)
+→ time(*)
+→ replay
+→ rebuild(BitMemory @ boundary)
+→ contextual inference
+```
+
+`time(*)` is not a date filter. It is the boundary used to replay the already-scoped stream.
+
+```text
+BitMemory@boundary = rebuild(context(*).events[≤ time(*)])
+contextual inference reads BitMemory@boundary only
+future events remain outside the replay
+```
+
+The order is invariant: scope first, cut second, replay third, rebuild fourth, infer last. Reversing it allows future memories to leak backward.
+
 ### SQL
 
 ```text
@@ -151,4 +176,3 @@ into(qt'bee | qt'b33, detail) = render semantic detail
 Make a real SQL ↔ NoSQL join work without forcing either database, query language, or output structure to own the others.
 
 Thank you, old C and memory-based language people. Linus, RK Software, and anyone willing to challenge the join are welcome. `<3`
-
