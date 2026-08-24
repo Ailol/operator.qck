@@ -1,187 +1,154 @@
-# *qdb - the q'ant database :) 
+# *qdb — the q'ant database
 
-thank you old c and memory based language people, only one i dare is linus and rk software on challenging that even a join between nosql and sql would be amazing :) 
+> query while the structure is unknown. quant only when a structure is defined.
 
+q'db is designed for evolving the field or for the qt'bee doing research at home. `<no one else.>`
 
-### definitions of operators
-```
-*      = dereference the signal; keep the operation open
-&      = final operation; emit retVal
+lineage :: old C and memory-based languages
+challenge :: SQL × NoSQL × redis × bitmap × user-defined structs
+status :: experimental
+cross_database_join :: onhold
 
-*sql   = query through language; keep its signal live
-&sql   = final language query; emit retVal
-```
+quant :: the structure you define
+q'ant :: the undefined signal gathering before structure
+capitalization :: structs only; everything else remains small
+endpoint :: `endpoint.qck('query')`
 
+## operators
 
-### Source
+```text
+*       = dereference the signal; keep the current phase open
+&       = final operation in the current phase; emit retVal
+**      = open engine or language slot
 
-Q'db is designed for evolving the field or for the qt'bee doing research at home. <no one else.>
-
-> quant is the structure you define.
-> q'ant is when its undefined, like a ant gathering. 
-
-only capitalize on structs. rest is small.
-
-endpoint.qck('query');
-
-#### SQL
-```
-do(struct'sql{
-  
-    * - to be joined(*endpoint.qck('sqlQuery | even a .sql'))
-}into(&BitMatrix)
-```
-
-#### Nosql
-do(struct'no{
-    endpoint.qck('noQuery.mdb')
-}into(BitMatrix(*redisEndpoint))
-
-#### join
-CarryVariable = do(struct'no{
-   endpoint.qck('noQuery.mdb'))
-};
-
-carryVariable= do(struct'sql{
-   endpoint.qck(
-}, into(BitMatrix))
-
- onhold
----
-```
-#### The query style (v'set()) ** 
-
-do(vSet'("home last week")){
- ** ( is it possible to query a bitmap or any structure with regular language? yes)
-  &q'partikles(the algorithm, the function is qp(algorithm))
-
-  *quant'pata(structure wordplay)
-
-}into(qt'bee or qt'b33, level of a detail)
-```
-
-
-
-### Into()
-- own structure is appreciated, challenge is any language tbh
-- any driver operated leak sql networks always welcome
-
-
-
-*bitmap
-→ RoaringBitMap
-
-*bitmap.query
-→ smp_kernel
-   - BitVector
-   - Regex
-   -own query language
-   - etc
-
-*bitmap
-→ BitMatrix {
-    rows,
-    cols,
-    words_per_row,
-    data :: Vec<u64>
-  }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-### algorithmic
-do(vSet'("home last week")){
-
-  &q'partikles(the algorithm, the function is qp(algorithm))
-
-  *quant'pata(structure wordplay)
-
-}into(qt'bee or qt'b33, level of a detail)
-
-# structured query is
-do(struct'sql){
-  &[mssql query]
-
-  *quant isnt needed as its already apart of the mssql
-
-}into(qt'bee or qt'b33)
-
-# join challenge with multi database and redis and <3
-do(struct'sql){
-
-  *mssql.qck(to be joined)
-
-}do(struct'sql){
-  &NoSqlmngdb.qck()
-}into(retVal)
-
-&hashmap'struct{
-  and then C lives so that one gets to build own structs again :) i miss that <3
-}
-
-*bitmap
-→ RoaringBitMap
-
-*bitmap.query
-→ smp_kernel
-   - BitVector
-   - Regex
-   -own query language
-   - etc
-
-*bitmap
-→ BitMatrix {
-    rows,
-    cols,
-    words_per_row,
-    data :: Vec<u64>
-  }
-
-
-```
-hmm
-
-* = dereference the signal
 vector ≈ *
 
-*sql = dereference the signal; that it doesnt quant into a structure yet, but kept in memory while working.
-&sql is to signal this is the last operation and the next one is to build the structure.
+*sql    = query through language; keep its signal live
+&sql    = final language query; emit retVal
+
+*quant  = materialize an undefined signal through a struct template
+retVal  = returned signal; its structure may remain undefined
 ```
+
+## execution
+
+```text
+do(source) {
+  *operation
+  &final_operation
+} into(retVal | Struct | render)
+```
+
+`&` closes the current phase. It does not require the next phase to build a structure.
+
+- `into(retVal)` preserves the returned signal without choosing a structure.
+- `into(Struct)` materializes a named structure.
+- `into(qt'bee | qt'b33, detail)` renders the requested level of detail.
+- `struct'sql` is already structured; `*quant` is not required.
+
+## algorithmic query
+
+```text
+do(vSet'("home last week")) {
+  **("is it possible to query a bitmap or any structure with regular language? yes")
+
+  &q'partikles(qp(algorithm))
+  *quant'pata(structure wordplay)
+
+} into(qt'bee | qt'b33, detail)
+```
+
+`&q'partikles` closes the inference phase. `*quant'pata` receives its signal and begins the optional structure phase.
+
+## structured query
+
+### SQL
+
+```text
+do(struct'sql) {
+  &[mssql query]
+} into(qt'bee | qt'b33, detail)
+```
+
+```text
+do(struct'sql) {
+  &endpoint.qck('sqlQuery | file.sql')
+} into(BitMatrix)
+```
+
+### NoSQL
+
+```text
+do(struct'no) {
+  &endpoint.qck('noQuery.mdb')
+} into(BitMatrix(*redisEndpoint))
+```
+
+## cross-database join
+
+The join remains a challenge, not a claimed implementation.
+
+```text
+carryVariable = do(struct'no) {
+  &endpoint.qck('noQuery.mdb')
+} into(retVal)
+
+do(struct'sql) {
+  *endpoint.qck('sqlQuery | file.sql')
+  &join(carryVariable)
+} into(retVal)
+```
+
+The joined result remains `retVal` until a consumer selects a structure.
+
+```text
+&hashmap'struct {
+  c :: builds its own structure from retVal
+}
+```
+
+## bitmap family
+
+```text
+*bitmap {
+  single :: RoaringBitMap
+
+  query :: smp_kernel {
+    BitVector
+    regex
+    own query language
+    **
+  }
+
+  batch :: BitMatrix {
+    rows
+    cols
+    words_per_row
+    data :: Vec<u64>
+  }
+}
+```
+
+`*bitmap` dereferences the bit-addressed signal. The requested operation and `into(...)` determine its working shape.
+
+## Into()
+
+```text
+into(retVal)                  = keep the structure undefined
+into(Struct)                  = use a supplied structure template
+into(qt'bee | qt'b33, detail) = render semantic detail
+```
+
+- own structures are appreciated
+- any language may implement an endpoint, query engine, driver, or struct adapter
+- authorized database drivers are welcome
+- no operator silently writes to its source
+- source and provenance remain recoverable
+- q'ant never becomes quant without an explicit structure boundary
+
+## open challenge
+
+Make a real SQL ↔ NoSQL join work without forcing either database, query language, or output structure to own the others.
+
+Thank you, old C and memory-based language people. Linus, RK Software, and anyone willing to challenge the join are welcome. `<3`
 
