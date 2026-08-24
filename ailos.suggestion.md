@@ -1,6 +1,9 @@
+# Two functions for event'sourcing 
+- event sourcing is  it is to reacreate the app in a certain time within a persons context
 
 two "structured query functions".
 time(*), context(*)
+
 
 ### algorithmic
 do(vSet'("home last week")){
