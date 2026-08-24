@@ -49,16 +49,42 @@ carryVariable= do(struct'sql{
  onhold
 ---
 ```
-#### v'set() 
+#### The query style (v'set()) ** 
 
 do(vSet'("home last week")){
-
+ ** ( is it possible to query a bitmap or any structure with regular language? yes)
   &q'partikles(the algorithm, the function is qp(algorithm))
 
   *quant'pata(structure wordplay)
 
 }into(qt'bee or qt'b33, level of a detail)
 ```
+
+
+
+### Into()
+- own structure is appreciated, challenge is any language tbh
+- any driver operated leak sql networks always welcome
+
+
+
+*bitmap
+→ RoaringBitMap
+
+*bitmap.query
+→ smp_kernel
+   - BitVector
+   - Regex
+   -own query language
+   - etc
+
+*bitmap
+→ BitMatrix {
+    rows,
+    cols,
+    words_per_row,
+    data :: Vec<u64>
+  }
 
 
 
