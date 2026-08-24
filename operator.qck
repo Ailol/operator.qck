@@ -62,9 +62,11 @@ do(vSet'("home last week")) {
 
 ## structured query
 
-### replay scope
+### event sourcing
 
-`context(*)` and `time(*)` are ordered structured-query functions.
+event sourcing :: recreate the app at a selected boundary within one person's context
+
+`context(*)` and `time(*)` are its two ordered structured-query functions.
 
 ```text
 context(*) = scope one person or stream plus its BitMemory field
@@ -108,6 +110,22 @@ do(struct'no) {
   &endpoint.qck('noQuery.mdb')
 } into(BitMatrix(*redisEndpoint))
 ```
+
+### web
+
+For web output, HTML is the `struct'`. It is not another data struct.
+
+```text
+do(struct'sql) {
+  &[sql query]
+} into(retVal)
+
+retVal
+→ *html
+→ &document
+```
+
+`retVal` carries the fetched data. `*html` opens the DOM/template structure, and `&document` emits the resolved web output. Because `struct'sql` already returned structured data, no additional `*quant` is required.
 
 ## cross-database join
 
