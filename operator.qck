@@ -1,0 +1,109 @@
+operator.qck
+
+* = dereference the signal
+vector ≈ *
+
+*sql = dereference the signal; query it through language.
+
+mSQL ∈ *sql
+human dialect ∈ *sql
+AI dialect ∈ *sql
+culture-local dialect ∈ *sql
+
+*query {
+  core     :: regex.v2
+  engine   :: regex.v2 | **
+  language :: *sql | **
+}
+
+*bitmap = dereference a bit-addressed field in the shape required now.
+
+*bitmap.single
+→ pyroaring.BitMap
+
+*bitmap.query
+→ smp_kernel.BitVector
+
+*bitmap.batch
+→ smp_kernel.BitMatrix {
+    rows,
+    cols,
+    words_per_row,
+    data :: Vec<u64>
+  }
+
+struct(memory') {
+  memory_id :: int
+
+  field {
+    L0 :: *bitmap.single' exact' stored
+    L1 :: *bitmap.single' co_occurrence' computed
+    L2 :: *bitmap.single' bridges' stored
+    L3 :: *bitmap.single' dilation' stored
+  }
+
+  bitmap :: field.L0
+
+  regions :: bitmap[0..31999] {
+    fingerprint      :: 0..999
+    content          :: 1000..19999
+    balanced_parens  :: 20000..20999
+    cross_turn       :: 21000..21999
+    reserved_a       :: 22000..25999
+    reserved_b       :: 26000..29999
+    piece            :: 30000..31999
+  }
+
+  raw_text     :: str
+  timestamp    :: float
+  turn_count   :: int
+  mera_fine    :: MeraFine | none
+  mera_coarse  :: MeraCoarse | none
+  template_id  :: int | none
+  braid        :: Braid | none
+}
+
+struct(batch') {
+  L0 :: *bitmap.batch
+  L2 :: *bitmap.batch
+  L3 :: *bitmap.batch
+}
+
+struct(flock') {
+  core       :: set[int]
+  near       :: set[int]
+  contextual :: set[int]
+  peripheral :: set[int]
+}
+
+do(struct'field) {
+  batch inference is the goal
+} into(batch)
+
+do(struct'batch) {
+  *bitmap.query is the query
+  L0 AND + popcount is the contact
+  L1 co_occurrence is the resonance
+  L2 bridge AND is the conduction
+  L3 dilation AND is the radiation
+  interference is the gate
+  structural inference is the goal
+} into(flock)
+
+struct(v') @ bti'(moment) :=
+  choose {
+    *table    :: filtering | ordering | joins | comparison
+    **hashmap :: keyed contact | exact lookup | repeated access
+  }
+
+do(struct'data) {
+  *query is the goal
+} into(structure)
+
+pyroaring.BitMap
+→ list[bit_position]
+→ smp_kernel.BitMatrix
+
+list[bit_position] :: adapter
+
+operator.qck'
