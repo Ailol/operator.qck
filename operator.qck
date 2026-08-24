@@ -3,7 +3,8 @@ operator.qck
 * = dereference the signal
 vector ≈ *
 
-*sql = dereference the signal; query it through language.
+*sql = dereference the signal; that it doesnt quant into a structure yet, but kept in memory while working.
+&sql is to signal this is the last operation and the next one is to build the structure.
 
 mSQL ∈ *sql
 human dialect ∈ *sql
@@ -14,6 +15,36 @@ culture-local dialect ∈ *sql
   core     :: regex.v2
   engine   :: regex.v2 | **
   language :: *sql | **
+}
+
+### algorithmic
+do(vSet'("home last week")){
+
+  &q'partikles(the algorithm, the function is qp(algorithm))
+
+  *quant'pata(structure wordplay)
+
+}into(qt'bee or qt'b33, level of a detail)
+
+# structured query is
+do(struct'sql){
+  &[mssql query]
+
+  *quant isnt needed as its already apart of the mssql
+
+}into(qt'bee or qt'b33)
+
+# join challenge with multi database and redis and <3
+do(struct'sql){
+
+  *mssql.qck(to be joined)
+
+}do(struct'sql){
+  &NoSqlmngdb.qck()
+}into(*hashmap)
+
+&hashmap'struct{
+  and then C lives so that one gets to build own structs again :) i miss that <3
 }
 
 *bitmap = dereference a bit-addressed field in the shape required now.
