@@ -1,21 +1,104 @@
-operator.qck
+# *qdb - the q'ant database :) 
 
-* = dereference the signal
-vector ≈ *
+thank you old c and memory based language people, only one i dare is linus and rk software on challenging that even a join between nosql and sql would be amazing :) 
 
-*sql = dereference the signal; that it doesnt quant into a structure yet, but kept in memory while working.
-&sql is to signal this is the last operation and the next one is to build the structure.
 
-mSQL ∈ *sql
-human dialect ∈ *sql
-AI dialect ∈ *sql
-culture-local dialect ∈ *sql
+### definitions of operators
+```
+*      = dereference the signal; keep the operation open
+&      = final operation; emit retVal
 
-*query {
-  core     :: regex.v2
-  engine   :: regex.v2 | **
-  language :: *sql | **
-}
+*sql   = query through language; keep its signal live
+&sql   = final language query; emit retVal
+```
+
+
+### Source
+
+Q'db is designed for evolving the field or for the qt'bee doing research at home. <no one else.>
+
+> quant is the structure you define.
+> q'ant is when its undefined, like a ant gathering. 
+
+only capitalize on structs. rest is small.
+
+endpoint.qck('query');
+
+#### SQL
+```
+do(struct'sql{
+  
+    * - to be joined(*endpoint.qck('sqlQuery | even a .sql'))
+}into(&BitMatrix)
+```
+
+#### Nosql
+do(struct'no{
+    endpoint.qck('noQuery.mdb')
+}into(BitMatrix(*redisEndpoint))
+
+#### join
+CarryVariable = do(struct'no{
+   endpoint.qck('noQuery.mdb'))
+};
+
+carryVariable= do(struct'sql{
+   endpoint.qck(
+}, into(BitMatrix))
+
+ onhold
+---
+```
+#### v'set() 
+
+do(vSet'("home last week")){
+
+  &q'partikles(the algorithm, the function is qp(algorithm))
+
+  *quant'pata(structure wordplay)
+
+}into(qt'bee or qt'b33, level of a detail)
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 ### algorithmic
 do(vSet'("home last week")){
@@ -41,107 +124,38 @@ do(struct'sql){
 
 }do(struct'sql){
   &NoSqlmngdb.qck()
-}into(*hashmap)
+}into(retVal)
 
 &hashmap'struct{
   and then C lives so that one gets to build own structs again :) i miss that <3
 }
 
-*bitmap = dereference a bit-addressed field in the shape required now.
-
-*bitmap.single
-→ pyroaring.BitMap
+*bitmap
+→ RoaringBitMap
 
 *bitmap.query
-→ smp_kernel.BitVector
+→ smp_kernel
+   - BitVector
+   - Regex
+   -own query language
+   - etc
 
-*bitmap.batch
-→ smp_kernel.BitMatrix {
+*bitmap
+→ BitMatrix {
     rows,
     cols,
     words_per_row,
     data :: Vec<u64>
   }
 
-struct(memory') {
-  memory_id :: int
 
-  field {
-    L0 :: *bitmap.single' exact' stored
-    L1 :: *bitmap.single' co_occurrence' computed
-    L2 :: *bitmap.single' bridges' stored
-    L3 :: *bitmap.single' dilation' stored
-  }
+```
+hmm
 
-  bitmap :: field.L0
+* = dereference the signal
+vector ≈ *
 
-  regions :: bitmap[0..31999] {
-    fingerprint      :: 0..999
-    content          :: 1000..19999
-    balanced_parens  :: 20000..20999
-    cross_turn       :: 21000..21999
-    reserved_a       :: 22000..25999
-    reserved_b       :: 26000..29999
-    piece            :: 30000..31999
-  }
+*sql = dereference the signal; that it doesnt quant into a structure yet, but kept in memory while working.
+&sql is to signal this is the last operation and the next one is to build the structure.
+```
 
-  raw_text     :: str
-  timestamp    :: float
-  turn_count   :: int
-  mera_fine    :: MeraFine | none
-  mera_coarse  :: MeraCoarse | none
-  template_id  :: int | none
-  braid        :: Braid | none
-}
-
-struct(batch') {
-  memory_ids :: list[int]
-  L0 :: *bitmap.batch
-  L2 :: *bitmap.batch
-  L3 :: *bitmap.batch
-}
-
-struct(data') {
-  memory   :: **hashmap[int, memory']
-  timeline :: *table[int, float]
-  batch    :: batch'
-}
-
-struct(flock') {
-  core       :: set[int]
-  near       :: set[int]
-  contextual :: set[int]
-  peripheral :: set[int]
-}
-
-do(struct'field) {
-  batch inference is the goal
-} into(batch)
-
-do(struct'batch) {
-  *bitmap.query is the query
-  L0 AND + popcount is the contact
-  L1 co_occurrence is the resonance
-  L2 bridge AND is the conduction
-  L3 dilation AND is the radiation
-  interference is the gate
-  structural inference is the goal
-} into(flock)
-
-struct(v') @ bti'(moment) :=
-  choose {
-    *table    :: filtering | ordering | joins | comparison
-    **hashmap :: keyed contact | exact lookup | repeated access
-  }
-
-do(struct'data) {
-  *query is the goal
-} into(structure)
-
-pyroaring.BitMap
-→ list[bit_position]
-→ smp_kernel.BitMatrix
-
-list[bit_position] :: adapter
-
-operator.qck'
