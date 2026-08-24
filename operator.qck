@@ -64,9 +64,16 @@ struct(memory') {
 }
 
 struct(batch') {
+  memory_ids :: list[int]
   L0 :: *bitmap.batch
   L2 :: *bitmap.batch
   L3 :: *bitmap.batch
+}
+
+struct(data') {
+  memory   :: **hashmap[int, memory']
+  timeline :: *table[int, float]
+  batch    :: batch'
 }
 
 struct(flock') {
